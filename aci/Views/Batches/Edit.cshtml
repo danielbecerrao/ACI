@@ -1,0 +1,49 @@
+﻿@model aci.Models.Batch
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Notify</h1>
+
+<h4>Batch</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="OperatorId" class="control-label"></label>
+                <select asp-for="OperatorId" class="form-control" asp-items="ViewBag.OperatorId"></select>
+                <span asp-validation-for="OperatorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GoodItems" class="control-label"></label>
+                <input asp-for="GoodItems" class="form-control" />
+                <span asp-validation-for="GoodItems" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenses" class="control-label"></label>
+                <input asp-for="Expenses" class="form-control" />
+                <span asp-validation-for="Expenses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observations" class="control-label"></label>
+                <input asp-for="Observations" class="form-control" />
+                <span asp-validation-for="Observations" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

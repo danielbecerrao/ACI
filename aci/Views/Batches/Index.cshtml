@@ -1,0 +1,93 @@
+﻿@model IEnumerable<aci.Models.Batch>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">
+                Batch list
+            </h2>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Operator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodItems)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BadItems)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expenses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observations)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Operator.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoodItems)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BadItems)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expenses)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observations)
+            </td>
+            <td>
+                    @if (item.GoodItems == null)
+                    {
+                        <a asp-controller="Batches" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning mx-2">
+                            <i class="bi bi-pencil-square"></i> Notify
+                        </a>
+                    }
+                    <a asp-controller="Batches" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info mx-2">
+                        <i class="bi bi-pencil-square"></i> Details
+                    </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
