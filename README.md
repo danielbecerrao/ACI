@@ -70,4 +70,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ### Contact
 
-For any inquiries or support regarding this project, please contact [Your Name](mailto:daniel-3223@hotmail.com).
+For any inquiries or support regarding this project, please contact [Daniel Becerra](mailto:daniel-3223@hotmail.com).
